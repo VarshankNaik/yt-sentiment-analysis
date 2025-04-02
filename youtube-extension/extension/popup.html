@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Sentiment Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="chart.umd.js"></script>
+    <script defer src="popup.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="video-title">YouTube Sentiment Analysis</h1>
+        <div class="meta-info">
+            <p id="comments-analyzed">Comments Analyzed: 0</p>
+            <p id="video-details">Views: 0 | Likes: 0</p>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <section class="sentiment-overview">
+            <h2>Sentiment Overview</h2>
+            <div class="chart-container">
+                <canvas id="sentimentChart"></canvas>
+            </div>
+            
+            <div class="sentiment-summary">
+                <h3>Sentiment Distribution</h3>
+                <div class="sentiment-bar">
+                    <div id="positive-bar" class="bar positive"></div>
+                    <div id="neutral-bar" class="bar neutral"></div>
+                    <div id="negative-bar" class="bar negative"></div>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="color-box positive"></span>
+                        <span class="legend-text">Positive: <strong id="positive">0%</strong></span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box neutral"></span>
+                        <span class="legend-text">Neutral: <strong id="neutral">0%</strong></span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box negative"></span>
+                        <span class="legend-text">Negative: <strong id="negative">0%</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-analysis">
+            <h2>Feature Analysis</h2>
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            
+            <div class="feature-scores">
+                <div class="feature-card" id="camera-card">
+                    <h3>Camera</h3>
+                    <div class="score" id="camera-score">0</div>
+                    <div class="meter">
+                        <div class="meter-bar" id="camera-meter"></div>
+                    </div>
+                </div>
+                <div class="feature-card" id="battery-card">
+                    <h3>Battery</h3>
+                    <div class="score" id="battery-score">0</div>
+                    <div class="meter">
+                        <div class="meter-bar" id="battery-meter"></div>
+                    </div>
+                </div>
+                <div class="feature-card" id="performance-card">
+                    <h3>Performance</h3>
+                    <div class="score" id="performance-score">0</div>
+                    <div class="meter">
+                        <div class="meter-bar" id="performance-meter"></div>
+                    </div>
+                </div>
+                <div class="feature-card" id="display-card">
+                    <h3>Display</h3>
+                    <div class="score" id="display-score">0</div>
+                    <div class="meter">
+                        <div class="meter-bar" id="display-meter"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comment-preview">
+            <h2>Comment Insights</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="positive-comments">Positive</button>
+                <button class="tab-btn" data-tab="neutral-comments">Neutral</button>
+                <button class="tab-btn" data-tab="negative-comments">Negative</button>
+            </div>
+            <div class="tab-content active" id="positive-comments">
+                <div class="comments-list" id="positive-comments-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+            <div class="tab-content" id="neutral-comments">
+                <div class="comments-list" id="neutral-comments-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+            <div class="tab-content" id="negative-comments">
+                <div class="comments-list" id="negative-comments-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="radar-chart-section">
+            <h2>Feature Comparison</h2>
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>YouTube Sentiment Analysis - Powered by DistilBERT</p>
+    </footer>
+</body>
+</html>

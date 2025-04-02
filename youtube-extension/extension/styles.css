@@ -1,0 +1,364 @@
+/* Modern Dark Theme */
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-tertiary: #0f3460;
+    --text-primary: #e94560;
+    --text-secondary: #ffffff;
+    --accent-positive: #4ade80;
+    --accent-neutral: #94a3b8;
+    --accent-negative: #f87171;
+    --card-bg: rgba(22, 33, 62, 0.7);
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 700px;
+    height: 600px;
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+h1 {
+    color: var(--text-primary);
+    font-size: 24px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    color: var(--text-primary);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--accent-neutral);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+section {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.sentiment-overview,
+.feature-analysis,
+.comment-preview,
+.radar-chart-section {
+    grid-column: span 1;
+}
+
+.chart-container {
+    height: 200px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Sentiment Bar */
+.sentiment-summary {
+    margin-top: 15px;
+}
+
+.sentiment-bar {
+    display: flex;
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.bar {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.positive {
+    background-color: var(--accent-positive);
+}
+
+.neutral {
+    background-color: var(--accent-neutral);
+}
+
+.negative {
+    background-color: var(--accent-negative);
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.color-box {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.legend-text {
+    font-size: 14px;
+}
+
+/* Feature Cards */
+.feature-scores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.meter {
+    height: 6px;
+    background-color: var(--bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.meter-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+/* Comment Tab System */
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab-btn {
+    flex: 1;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.tab-btn:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tab-btn.active {
+    background-color: var(--text-primary);
+}
+
+.tab-content {
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.comments-list {
+    text-align: left;
+}
+
+.comment-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    font-size: 13px;
+    border-left: 3px solid;
+}
+
+.comment-item.positive {
+    border-left-color: var(--accent-positive);
+}
+
+.comment-item.neutral {
+    border-left-color: var(--accent-neutral);
+}
+
+.comment-item.negative {
+    border-left-color: var(--accent-negative);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--accent-neutral);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary);
+}
+
+/* Add this to your existing CSS file */
+
+/* Retry Button */
+.retry-button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    background-color: var(--text-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #c43651;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Demo Mode Indicator */
+.demo-note {
+    background-color: rgba(248, 113, 113, 0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1.5s infinite;
+}
+
+.status-indicator.offline {
+    background-color: var(--accent-negative);
+}
+
+.status-indicator.online {
+    background-color: var(--accent-positive);
+    animation: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* Fix for chart aspect ratio */
+.chart-container {
+    position: relative;
+    height: 200px;
+    /* Fixed height */
+    width: 100%;
+}
+
+/* Error message styling */
+#comments-analyzed.error {
+    color: var(--accent-negative);
+    font-weight: bold;
+}
